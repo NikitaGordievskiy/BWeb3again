@@ -51,14 +51,14 @@ if ($errors) {
 
 // Сохранение в базу данных.
 
-$user = 'u52997';
-$pass = '4390881';
-$db = new PDO('mysql:host=localhost;dbname=u52997', $user, $pass, [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$user = 'u52838';
+$pass = '6088776';
+$db = new PDO('mysql:host=localhost;dbname=u52838', $user, $pass, [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
 // Подготовленный запрос. Не именованные метки.
 try {
-  $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, year = ?, sex = ?, limbs = ?, biography = ?");
-  $stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'],$_POST['limbs'], $_POST['biography']]);
+  $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, year = ?, gender = ?, limbs = ?, biography = ?");
+  $stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['gender'],$_POST['limbs'], $_POST['biography']]);
   $application_id = $db->lastInsertId();
   
   $application_ability = $db->prepare("INSERT INTO application_ability SET aplication_id = ?, ability_id = ?");
